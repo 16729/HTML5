@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding: 0;
+}
+a { 
+	color: rgba(255, 255, 255, 0.6);
+	outline: none; 
+	text-decoration: none;
+	-webkit-transition: 0.2s;
+	transition: 0.2s; }
+a:hover, a:focus { 
+	color: #74777b;
+	text-decoration: none;
+}
+.login{
+	float: right;
+	padding-right: 50px;
+	font-size: 14px;
+}
+.login_a{
+	padding-top: 3px;
+}
+main{
+	width: 80%;
+	height: 1700px;
+	margin: 0 auto;
+}
+.container{
+	width: 80%;
+	margin: 0 auto;
+	height: 710px;
+	padding-top: 50px;
+}
+footer{
+
+		width: 100%;
+		height: 220px;
+		clear: both;
+		background-color: rgba(69,69,69,1.00);
+}
+#foot_bottom{
+		clear: both;
+		width: 1000px;
+		height: 220px;
+		margin: 0 auto;
+}	
+#fb_l{
+		margin-top: 20px;
+		width: 1002px;
+		height: 90px;
+		border: 1px  double #ccc;
+		border-left-style: none;
+		border-right-style: none;
+		text-decoration: none;
+		font-size: 12px;
+}
+#fb_l ul{
+		padding: 10px 9px 0 9px;
+}
+#fb_l li{
+		list-style: none;
+		display: inline;
+		margin: 0 5px;	
+}
+#fb_l li a{
+		text-decoration: none;
+		color: #7A7979;
+}
+#fb_l li a:hover{
+		color: white;
+}		
+#btn{
+    position:absolute;    
+	right: 10px;
+	width: 50px;
+	height: 50px;
+	background: gray;
+}
