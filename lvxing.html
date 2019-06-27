@@ -26,8 +26,8 @@
             <a class="nav_body" href="#">目的地</a>
         </li>
         <li>
-            <a class="nav_head" href="#">旅游攻略</a>
-            <a class="nav_body" href="#">旅游攻略</a>
+            <a class="nav_head" href="gonglue.html">旅游攻略</a>
+            <a class="nav_body" href="gonglue.html">旅游攻略</a>
             <a class="nav_body" href="#">旅游攻略</a>
             <a class="nav_body" href="#">旅游攻略</a>
         </li>
@@ -69,7 +69,7 @@
 <div id="content">
 		<div class="biaoti">
 			<p>
-				<a href="">旅行家专栏</a><a href="">远风男男的专栏</a>
+				<a href="">旅行家专栏</a>
 				<a style="color: rgba(255,110,0,1.00)">邵伯：喧嚣与沉寂一岸相隔</a>
 				<span class="wenzi"></span>
 			</p>
@@ -179,7 +179,146 @@
 		  </div>
 	  </div>
 		<div class="right">
-		
+			<canvas id="mycanvas" width="410px" height="400px">您的浏览器太low了,请切换</canvas> 
+  <script> 
+   //获取画布对象 
+   var mycanvas = document.getElementById('mycanvas'); 
+   //获取一个2d绘图环境（拿到一支画笔） 
+   var ctx = mycanvas.getContext('2d'); 
+	  
+    
+  function draw(){ 
+  
+   //获取系统时间 
+   var nowTime = new Date(); 
+   var hours = nowTime.getHours();//获取时 
+   var minutes = nowTime.getMinutes();//获取分 
+   var seconds = nowTime.getSeconds();//获取秒 
+    
+   //防止小时超过12 
+   hours = hours > 12 ? hours-12 : hours; 
+   //精准设置小时值 
+   hours = hours + minutes/60; 
+  
+   //清除画布（防止覆盖） 
+   ctx.clearRect(0,0,500,500); 
+  
+   //初始化画笔的样式 
+   ctx.lineWidth = 5; //设置线条的宽度 
+   ctx.strokeStyle = '#000'; //设置线条颜色 
+    
+   ctx.beginPath();//开始新的绘图路径 
+   //设置一个圆形路径 
+   ctx.arc(250,250,150,0,360,false); 
+   //绘制图形 
+   ctx.stroke(); 
+   ctx.closePath();//结束当前绘图路径 
+    
+   //绘制刻度(时刻度) 
+   for(var i = 0;i < 12;i++){ 
+    ctx.beginPath(); 
+    ctx.lineWidth = 10; 
+    //保存当前绘图环境 
+    ctx.save(); 
+    //重置绘制起始位置(将圆心位置重置为0,0) 
+    ctx.translate(250,250); 
+    //旋转画布到一定的弧度 弧度=角度*PI/180 
+    ctx.rotate(i * 30 * Math.PI / 180); 
+    //设置绘制线条的起始位置 
+    ctx.moveTo(0,140); 
+    //设置线条的结束位置 
+    ctx.lineTo(0,150); 
+    //绘制路径 
+    ctx.stroke(); 
+    //还原初始的绘图环境 
+    ctx.restore(); 
+    ctx.closePath(); 
+   } 
+    
+   //绘制刻度(分刻度) 
+   for(var i = 0;i < 60;i++){ 
+    ctx.beginPath(); 
+    ctx.lineWidth = 3; 
+    //保存当前绘图环境 
+    ctx.save(); 
+    //重置绘制起始位置(将圆心位置重置为0,0) 
+    ctx.translate(250,250); 
+    //旋转画布到一定的弧度 弧度=角度*PI/180 
+    ctx.rotate(i * 6 * Math.PI / 180); 
+    //设置绘制线条的起始位置 
+    ctx.moveTo(0,142); 
+    //设置线条的结束位置 
+    ctx.lineTo(0,146); 
+    //绘制路径 
+    ctx.stroke(); 
+    //还原初始的绘图环境 
+    ctx.restore(); 
+    ctx.closePath(); 
+   } 
+    
+   /*绘制时针*/ 
+   ctx.beginPath(); 
+   ctx.lineWidth = 5; 
+   //保存当前绘图环境 
+   ctx.save(); 
+   //重置绘制起始位置(将圆心位置重置为0,0) 
+   ctx.translate(250,250); 
+   //旋转画布到一定的弧度 弧度=角度*PI/180 
+   ctx.rotate(hours * 30 * Math.PI / 180); 
+   //设置绘制线条的起始位置 
+   ctx.moveTo(0,10); 
+   //设置线条的结束位置 
+   ctx.lineTo(0,-100); 
+   //绘制路径 
+   ctx.stroke(); 
+   //还原初始的绘图环境 
+   ctx.restore(); 
+   ctx.closePath(); 
+    
+   /*绘制分针*/ 
+   ctx.beginPath(); 
+   ctx.lineWidth = 3; 
+   //保存当前绘图环境 
+   ctx.save(); 
+   //重置绘制起始位置(将圆心位置重置为0,0) 
+   ctx.translate(250,250); 
+   //旋转画布到一定的弧度 弧度=角度*PI/180 
+   ctx.rotate(minutes * 6 * Math.PI / 180); 
+   //设置绘制线条的起始位置 
+   ctx.moveTo(0,10); 
+   //设置线条的结束位置 
+   ctx.lineTo(0,-120); 
+   //绘制路径 
+   ctx.stroke(); 
+   //还原初始的绘图环境 
+   ctx.restore(); 
+   ctx.closePath(); 
+    
+    
+   /*绘制秒针*/ 
+   ctx.beginPath(); 
+   ctx.lineWidth = 1; 
+   ctx.strokeStyle = '#f00'; 
+   //保存当前绘图环境 
+   ctx.save(); 
+   //重置绘制起始位置(将圆心位置重置为0,0) 
+   ctx.translate(250,250); 
+   //旋转画布到一定的弧度 弧度=角度*PI/180 
+   ctx.rotate(seconds * 6 * Math.PI / 180); 
+   //设置绘制线条的起始位置 
+   ctx.moveTo(0,10); 
+   //设置线条的结束位置 
+   ctx.lineTo(0,-135); 
+   //绘制路径 
+   ctx.stroke(); 
+   //还原初始的绘图环境 
+   ctx.restore(); 
+   ctx.closePath(); 
+  } 
+   
+  setInterval(draw,1000); 
+   
+  </script> 
 		
 			<div class="photo">
 				<img src="images/photo.png">

@@ -129,3 +129,22 @@ form {
   font-family: FontAwesome;
   color: #324b4e;
 }
+a { 
+	color: rgba(255, 255, 255, 0.6);
+	outline: none; 
+	text-decoration: none;
+	-webkit-transition: 0.2s;
+	transition: 0.2s; }
+a:hover, a:focus { 
+	color: #74777b;
+	text-decoration: none;
+}
+.jq22-content { padding: 1em; }
+.login{
+	float: right;
+	padding-right: 50px;
+	font-size: 14px;
+}
+.login_a{
+	padding-top: 3px;
+}
